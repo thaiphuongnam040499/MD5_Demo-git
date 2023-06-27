@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import rikkei.academy.model.Blog;
 import rikkei.academy.service.IBlogService;
 
-@AllArgsConstructor
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping("Blog")
+@RequestMapping("/blog")
 public class BlogController {
     @Autowired
     private IBlogService blogService;

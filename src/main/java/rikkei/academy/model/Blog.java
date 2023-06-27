@@ -20,5 +20,5 @@ public class Blog {
     private Long id;
     private String nameBlog;
     private String text;
-    private boolean status;
+    private boolean status = false;
 }

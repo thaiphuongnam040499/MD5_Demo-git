@@ -4,5 +4,5 @@ import rikkei.academy.model.Blog;
 
 
 public interface IBlogService {
-Blog save(Blog blog);
+    Blog save(Blog blog);
 }

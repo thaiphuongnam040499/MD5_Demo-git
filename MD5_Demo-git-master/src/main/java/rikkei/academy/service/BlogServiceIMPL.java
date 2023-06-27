@@ -5,19 +5,18 @@ import org.springframework.stereotype.Service;
 import rikkei.academy.model.Blog;
 import rikkei.academy.repository.IBlogRepository;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Service
-public class BlogServiceIMPL implements IBlogService {
+public class BlogServiceIMPL implements IBlogService{
     @Autowired
-    IBlogRepository blogRepository;
-    @Override
-    public List<Blog> searchBlogByNameBlog(String search) {
-        return blogRepository.searchBlogByNameBlog(search);
-    }
+    private IBlogRepository blogRepository;
 
     @Override
     public Blog save(Blog blog) {
         return blogRepository.save(blog);
     }
+
+
 }

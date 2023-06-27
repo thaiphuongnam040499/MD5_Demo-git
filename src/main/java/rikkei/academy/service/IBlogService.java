@@ -1,5 +1,10 @@
 package rikkei.academy.service;
 
-public interface IBlogService<T,E> {
-    void delete(E id);
+import rikkei.academy.model.Blog;
+
+import java.util.List;
+
+public interface IBlogService {
+    List<Blog> searchBlogByNameBlog(String search);
+    void delete(Long id);
 }

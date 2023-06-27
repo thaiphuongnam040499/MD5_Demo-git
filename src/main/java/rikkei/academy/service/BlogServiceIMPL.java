@@ -19,4 +19,10 @@ public class BlogServiceIMPL implements IBlogService {
     public void delete(Long id) {
         blogRepository.deleteById(id);
     }
+    @Override
+    public Blog findBLogById(Long id) {
+        Blog blog=blogRepository.findBlogById(id);
+        blog.setStatus(!blog.isStatus());
+        return blog;
+    }
 }

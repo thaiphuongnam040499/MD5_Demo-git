@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface IBlogService {
     List<Blog> searchBlogByNameBlog(String search);
+    Blog findBLogById(Long id);
     void delete(Long id);
 }

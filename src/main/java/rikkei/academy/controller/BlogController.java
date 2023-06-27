@@ -3,10 +3,7 @@ package rikkei.academy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rikkei.academy.model.Blog;
 import rikkei.academy.repository.IBlogRepository;
 import rikkei.academy.service.BlogServiceIMPL;
@@ -19,6 +16,13 @@ import java.util.List;
 public class BlogController {
     @Autowired
     IBlogService blogService;
+    @Autowired
+    private BlogServiceIMPL blogServiceIMPL;
+    @PutMapping("update/{id}")
+    ResponseEntity<?>setStatusBlog(@PathVariable Long id){
+        Blog blog=blogServiceIMPL.findBLogById(id);
+        return new  ResponseEntity<>(blog, HttpStatus.OK);
+    }
 
     @GetMapping("/search/{search}")
     public ResponseEntity<?> search (@PathVariable String search) {
@@ -28,10 +32,8 @@ public class BlogController {
         }
         return ResponseEntity.ok(searchList);
     }
-    @Autowired
-    private BlogServiceIMPL blogServiceIMPL;
 
     public void delete(Long id) {
-        blogServiceIMPL.delete(id);
+        blogService.delete(id);
     }
 }

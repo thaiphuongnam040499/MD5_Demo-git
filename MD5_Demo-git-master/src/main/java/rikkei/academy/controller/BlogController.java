@@ -14,7 +14,7 @@ import rikkei.academy.service.IBlogService;
 public class BlogController {
     @Autowired
     private IBlogService blogService;
-    @PostMapping("/create")
+    @PostMapping("/createBlog")
     public ResponseEntity<?> create(@RequestBody Blog blog){
         Blog blogCreate = blogService.save(blog);
         return ResponseEntity.ok(blogCreate);

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import rikkei.academy.model.Blog;
 
 @Repository
-
 public interface IBlogRepository  extends JpaRepository<Blog, Long >
          {
 }

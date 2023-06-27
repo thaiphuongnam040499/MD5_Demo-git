@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import rikkei.academy.model.Blog;
 import rikkei.academy.repository.IBlogRepository;
 
+import java.sql.Blob;
+import java.util.List;
+
 @Service
 public class BlogServiceIMPL implements IBlogService{
     @Autowired

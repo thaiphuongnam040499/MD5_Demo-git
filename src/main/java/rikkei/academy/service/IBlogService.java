@@ -1,4 +1,9 @@
 package rikkei.academy.service;
 
-public interface IBlogService {
+import rikkei.academy.model.Blog;
+
+import java.util.List;
+
+public interface IBlogService extends IGenericService<Blog, Long> {
+
 }

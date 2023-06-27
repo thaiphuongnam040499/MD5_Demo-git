@@ -15,13 +15,13 @@ public class BlogController {
 
     @PostMapping("updateBlog")
     public ResponseEntity<?> updateBlog(@RequestBody Blog blog) {
-        Blog blog1 = Blog
+        Blog blog2 = Blog
                 .builder()
                 .id(blog.getId())
                 .nameBlog(blog.getNameBlog())
                 .text(blog.getText())
                 .build();
-        blogService.save(blog1);
-        return ResponseEntity.ok(blog1);
+        blogService.save(blog2);
+        return ResponseEntity.ok(blog2);
     }
 }

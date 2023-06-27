@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import rikkei.academy.model.Blog;
+import rikkei.academy.repository.IBlogRepository;
+import rikkei.academy.service.BlogServiceIMPL;
 import rikkei.academy.service.IBlogService;
 
 import java.util.List;
@@ -25,5 +27,11 @@ public class BlogController {
             return new ResponseEntity<>("Blog not found", HttpStatus.NO_CONTENT);
         }
         return ResponseEntity.ok(searchList);
+    }
+    @Autowired
+    private BlogServiceIMPL blogServiceIMPL;
+
+    public void delete(Long id) {
+        blogServiceIMPL.delete(id);
     }
 }

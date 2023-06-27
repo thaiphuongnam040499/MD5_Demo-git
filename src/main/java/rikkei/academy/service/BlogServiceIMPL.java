@@ -15,4 +15,8 @@ public class BlogServiceIMPL implements IBlogService {
     public List<Blog> searchBlogByNameBlog(String search) {
         return blogRepository.searchBlogByNameBlog(search);
     }
+    @Override
+    public void delete(Long id) {
+        blogRepository.deleteById(id);
+    }
 }

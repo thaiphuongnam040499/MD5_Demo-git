@@ -8,6 +8,7 @@ import rikkei.academy.model.Blog;
 import rikkei.academy.repository.IBlogRepository;
 import rikkei.academy.service.BlogServiceIMPL;
 import rikkei.academy.service.IBlogService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +38,17 @@ public class BlogController {
     @GetMapping("/delete")
     public void delete(Long id) {
         blogService.delete(id);
+    }
+
+    @PostMapping("updateBlog")
+    public ResponseEntity<?> updateBlog(@RequestBody Blog blog) {
+        Blog blog2 = Blog
+                .builder()
+                .id(blog.getId())
+                .nameBlog(blog.getNameBlog())
+                .text(blog.getText())
+                .build();
+        blogService.save(blog2);
+        return ResponseEntity.ok(blog2);
     }
 }

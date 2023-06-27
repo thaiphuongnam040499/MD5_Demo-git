@@ -25,4 +25,8 @@ public class BlogServiceIMPL implements IBlogService {
         blog.setStatus(!blog.isStatus());
         return blog;
     }
+    @Override
+    public Blog save(Blog blog) {
+        return blogRepository.save(blog);
+    }
 }

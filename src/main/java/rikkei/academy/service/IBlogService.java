@@ -8,7 +8,5 @@ import rikkei.academy.model.Blog;
 
 
 public interface IBlogService {
-    List<Blog> searchBlogByNameBlog(String search);
-    void delete(Long id);
     Blog save(Blog blog);
 }

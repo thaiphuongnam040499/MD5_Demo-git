@@ -10,7 +10,7 @@ import rikkei.academy.service.IBlogService;
 @AllArgsConstructor
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/api/blog")
+@RequestMapping("/blog")
 public class BlogController {
     @Autowired
     private IBlogService blogService;

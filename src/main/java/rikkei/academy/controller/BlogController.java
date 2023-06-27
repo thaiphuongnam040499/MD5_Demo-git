@@ -15,7 +15,7 @@ public class BlogController {
     @Autowired
     private IBlogService blogService;
 
-    @PostMapping("updateBlog/{id}")
+    @PostMapping("updateBlog")
     public ResponseEntity<?> updateBlog(@RequestBody Blog blog) {
         Blog blog1 = Blog
                 .builder()

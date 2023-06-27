@@ -4,5 +4,6 @@ import rikkei.academy.model.Blog;
 
 import java.sql.Blob;
 
-public interface IBlogService extends IGeneric<Blog, Long>{
+public interface IBlogService{
+    Blog save(Blog blog);
 }

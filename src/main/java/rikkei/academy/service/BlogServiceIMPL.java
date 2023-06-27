@@ -12,17 +12,7 @@ public class BlogServiceIMPL implements IBlogService {
     @Autowired
     IBlogRepository blogRepository;
     @Override
-    public List<Blog> searchBlogByNameBlog(String search) {
-        return blogRepository.searchBlogByNameBlog(search);
-    }
-    @Override
-    public void delete(Long id) {
-        blogRepository.deleteById(id);
-    }
-    @Override
-    public Blog findBLogById(Long id) {
-        Blog blog=blogRepository.findBlogById(id);
-        blog.setStatus(!blog.isStatus());
-        return blog;
+    public Blog save(Blog blog) {
+        return blogRepository.save(blog);
     }
 }

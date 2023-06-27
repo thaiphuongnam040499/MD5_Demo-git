@@ -3,10 +3,7 @@ package rikkei.academy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rikkei.academy.model.Blog;
 import rikkei.academy.service.IBlogService;
 
@@ -25,5 +22,10 @@ public class BlogController {
             return new ResponseEntity<>("Blog not found", HttpStatus.NO_CONTENT);
         }
         return ResponseEntity.ok(searchList);
+    }
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody Blog blog){
+        Blog blogCreate = blogService.save(blog);
+        return ResponseEntity.ok(blogCreate);
     }
 }

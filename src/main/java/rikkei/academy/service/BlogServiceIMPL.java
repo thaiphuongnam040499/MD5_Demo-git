@@ -15,4 +15,9 @@ public class BlogServiceIMPL implements IBlogService {
     public List<Blog> searchBlogByNameBlog(String search) {
         return blogRepository.searchBlogByNameBlog(search);
     }
+
+    @Override
+    public Blog save(Blog blog) {
+        return blogRepository.save(blog);
+    }
 }

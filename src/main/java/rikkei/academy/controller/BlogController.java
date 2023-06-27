@@ -17,7 +17,13 @@ public class BlogController {
 
     @PostMapping("updateBlog")
     public ResponseEntity<?> updateBlog(@RequestBody Blog blog) {
-        Blog blogUp = blogService.save(blog);
-        return ResponseEntity.ok(blogUp);
+        Blog blog1 = Blog
+                .builder()
+                .id(blog.getId())
+                .nameBlog(blog.getNameBlog())
+                .text(blog.getText())
+                .build();
+        blogService.save(blog1);
+        return ResponseEntity.ok(blog1);
     }
 }

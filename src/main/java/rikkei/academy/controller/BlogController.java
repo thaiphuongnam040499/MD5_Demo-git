@@ -18,14 +18,15 @@ public class BlogController {
     IBlogService blogService;
     @Autowired
     private BlogServiceIMPL blogServiceIMPL;
+
     @PutMapping("update/{id}")
-    ResponseEntity<?>setStatusBlog(@PathVariable Long id){
-        Blog blog=blogServiceIMPL.findBLogById(id);
-        return new  ResponseEntity<>(blog, HttpStatus.OK);
+    ResponseEntity<?> setStatusBlog(@PathVariable Long id) {
+        Blog blog = blogServiceIMPL.findBLogById(id);
+        return new ResponseEntity<>(blog, HttpStatus.OK);
     }
 
     @GetMapping("/search/{search}")
-    public ResponseEntity<?> search (@PathVariable String search) {
+    public ResponseEntity<?> search(@PathVariable String search) {
         List<Blog> searchList = blogService.searchBlogByNameBlog(search);
         if (searchList.isEmpty()) {
             return new ResponseEntity<>("Blog not found", HttpStatus.NO_CONTENT);
@@ -33,6 +34,7 @@ public class BlogController {
         return ResponseEntity.ok(searchList);
     }
 
+    @GetMapping("/delete")
     public void delete(Long id) {
         blogService.delete(id);
     }
